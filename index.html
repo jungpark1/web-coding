@@ -2,164 +2,183 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>박정근 소개</title>
 
 <style>
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --container-bg: #ffffff;
+    --header-bg: #2c3e50;
+    --header-text: #ffffff;
+    --border-color: #eeeeee;
+    --project-hover: #fafafa;
+    --footer-text: gray;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --container-bg: #2d2d2d;
+    --header-bg: #121212;
+    --header-text: #3498db;
+    --border-color: #444444;
+    --project-hover: #3a3a3a;
+    --footer-text: #888;
+}
 
 body {
     font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-    background-color:#f5f5f5;
-    margin:0;
-    padding:0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-header{
-    background-color:#2c3e50;
-    color:white;
-    padding:30px;
-    text-align:center;
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 30px;
+    text-align: center;
+    position: relative;
 }
 
-.container{
-    max-width:800px;
-    margin:40px auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-h2{
-    border-bottom:2px solid #eee;
-    padding-bottom:5px;
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: var(--container-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
 }
 
-ul{
-    line-height:1.8;
+h2 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
 }
 
-footer{
-    text-align:center;
-    padding:20px;
-    color:gray;
-    font-size:14px;
+ul {
+    line-height: 1.8;
 }
 
-/* 버튼 */
-
-button{
-    padding:12px 20px;
-    background:#3498db;
-    color:white;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--footer-text);
+    font-size: 14px;
 }
 
-button:hover{
-    background:#2980b9;
+button {
+    padding: 12px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-/* 프로젝트 */
-
-.project{
-    border:1px solid #eee;
-    padding:15px;
-    margin-top:10px;
-    border-radius:6px;
-    cursor:pointer;
+button:hover {
+    background: #2980b9;
 }
 
-.project:hover{
-    background:#fafafa;
+.project {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-.hidden{
-    display:none;
+.project:hover {
+    background: var(--project-hover);
 }
 
-.pipeline{
-    background:#f7f7f7;
-    padding:10px;
-    border-radius:6px;
-    margin-top:10px;
-    font-family:monospace;
+.hidden {
+    display: none;
 }
 
+.pipeline {
+    background: var(--project-hover);
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-family: monospace;
+    white-space: pre-line;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>박정근</h1>
-<p>데이터 분석가를 꿈꾸는 대학생</p>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">다크 모드</button>
+    <h1>박정근</h1>
+    <p>데이터 분석가를 꿈꾸는 대학생</p>
 </header>
 
 <div class="container">
 
 <section>
-<h2>소개</h2>
-<p>
-안녕하세요. 빅데이터 분석과 비즈니스에 관심이 있는 대학생 박정근입니다.
-데이터를 통해 의미를 발견하고 더 나은 의사결정을 돕는 분석가가 되는 것을 목표로 하고 있습니다.
-</p>
+    <h2>소개</h2>
+    <p>
+    안녕하세요. 빅데이터 분석과 비즈니스에 관심이 있는 대학생 박정근입니다.
+    데이터를 통해 의미를 발견하고 더 나은 의사결정을 돕는 분석가가 되는 것을 목표로 하고 있습니다.
+    </p>
 </section>
 
 <section>
-<h2>관심 분야</h2>
-<ul>
-<li>데이터 분석</li>
-<li>마케팅 데이터</li>
-<li>Python 및 SQL</li>
-<li>비즈니스 전략</li>
-</ul>
+    <h2>관심 분야</h2>
+    <ul>
+    <li>데이터 분석</li>
+    <li>마케팅 데이터</li>
+    <li>Python 및 SQL</li>
+    <li>비즈니스 전략</li>
+    </ul>
 </section>
 
 <section>
-<h2>목표</h2>
-<p>
-데이터 분석 역량을 키워 기업의 의사결정에 기여하는 분석가로 성장하고 싶습니다.
-</p>
+    <h2>목표</h2>
+    <p>
+    데이터 분석 역량을 키워 기업의 의사결정에 기여하는 분석가로 성장하고 싶습니다.
+    </p>
 </section>
 
 <br>
 
 <button onclick="showProjects()">프로젝트 보기</button>
 
-<!-- 프로젝트 리스트 -->
-
 <div id="projectList" class="hidden">
-
-<h2>프로젝트 목록</h2>
-
-<div class="project" onclick="openProject('project1')">
-SQL 데이터 분석 프로젝트
+    <h2>프로젝트 목록</h2>
+    <div class="project" onclick="openProject('project1')">SQL 데이터 분석 프로젝트</div>
+    <div class="project" onclick="openProject('project2')">추천 시스템 분석</div>
 </div>
-
-<div class="project" onclick="openProject('project2')">
-추천 시스템 분석
-</div>
-
-</div>
-
-<!-- 프로젝트 상세 -->
 
 <div id="projectDetail" class="hidden">
-
-<h2 id="projectTitle"></h2>
-
-<h3>프로젝트 개요</h3>
-<p id="projectDesc"></p>
-
-<h3>데이터 파이프라인</h3>
-
-<div id="projectPipe" class="pipeline"></div>
-
-<br>
-
-<button onclick="goBack()">목록으로 돌아가기</button>
-
+    <h2 id="projectTitle"></h2>
+    <h3>프로젝트 개요</h3>
+    <p id="projectDesc"></p>
+    <h3>데이터 파이프라인</h3>
+    <div id="projectPipe" class="pipeline"></div>
+    <br>
+    <button onclick="goBack()">목록으로 돌아가기</button>
 </div>
 
 </div>
@@ -169,61 +188,57 @@ SQL 데이터 분석 프로젝트
 </footer>
 
 <script>
+// 테마 관련 스크립트
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const targetTheme = currentTheme === "dark" ? "light" : "dark";
+    
+    document.documentElement.setAttribute("data-theme", targetTheme);
+    localStorage.setItem("theme", targetTheme);
+    updateBtnText(targetTheme);
+}
 
+function updateBtnText(theme) {
+    const btn = document.getElementById("themeBtn");
+    btn.innerText = theme === "dark" ? "라이트 모드" : "다크 모드";
+}
+
+// 초기 테마 설정
+const savedTheme = localStorage.getItem("theme") || "light";
+document.documentElement.setAttribute("data-theme", savedTheme);
+updateBtnText(savedTheme);
+
+// 기존 프로젝트 관련 스크립트
 function showProjects(){
-document.getElementById("projectList").classList.remove("hidden")
+    document.getElementById("projectList").classList.remove("hidden")
 }
 
 const projects = {
-
-project1:{
-title:"SQL 데이터 분석 프로젝트",
-desc:"쇼핑몰 데이터를 이용하여 고객 구매 패턴을 분석한 프로젝트",
-pipe:`
-Data Source
-→ SQL Database
-→ Data Cleaning
-→ Aggregation Query
-→ Insight Extraction
-→ Visualization
-`
-},
-
-project2:{
-title:"추천 시스템 분석",
-desc:"사용자 구매 데이터를 기반으로 상품 추천 시스템을 구현한 프로젝트",
-pipe:`
-Transaction Data
-→ Preprocessing
-→ Tokenization
-→ FP-Growth
-→ Association Rule
-→ Recommendation
-`
-}
-
+    project1:{
+        title:"SQL 데이터 분석 프로젝트",
+        desc:"쇼핑몰 데이터를 이용하여 고객 구매 패턴을 분석한 프로젝트",
+        pipe: "Data Source\n→ SQL Database\n→ Data Cleaning\n→ Aggregation Query\n→ Insight Extraction\n→ Visualization"
+    },
+    project2:{
+        title:"추천 시스템 분석",
+        desc:"사용자 구매 데이터를 기반으로 상품 추천 시스템을 구현한 프로젝트",
+        pipe: "Transaction Data\n→ Preprocessing\n→ Tokenization\n→ FP-Growth\n→ Association Rule\n→ Recommendation"
+    }
 }
 
 function openProject(id){
-
-const project = projects[id]
-
-document.getElementById("projectTitle").innerText = project.title
-document.getElementById("projectDesc").innerText = project.desc
-document.getElementById("projectPipe").innerText = project.pipe
-
-document.getElementById("projectList").classList.add("hidden")
-document.getElementById("projectDetail").classList.remove("hidden")
-
+    const project = projects[id]
+    document.getElementById("projectTitle").innerText = project.title
+    document.getElementById("projectDesc").innerText = project.desc
+    document.getElementById("projectPipe").innerText = project.pipe
+    document.getElementById("projectList").classList.add("hidden")
+    document.getElementById("projectDetail").classList.remove("hidden")
 }
 
 function goBack(){
-
-document.getElementById("projectDetail").classList.add("hidden")
-document.getElementById("projectList").classList.remove("hidden")
-
+    document.getElementById("projectDetail").classList.add("hidden")
+    document.getElementById("projectList").classList.remove("hidden")
 }
-
 </script>
 
 </body>
